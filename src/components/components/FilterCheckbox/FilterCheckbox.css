@@ -1,0 +1,38 @@
+.filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter__input {
+  position: relative;
+  border-radius: 20px;
+  height: 14px;
+  width: 34px;
+  background-color: #343434;
+  appearance: none;
+  transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
+  cursor: pointer;
+}
+
+.filter__input::after {
+  position: absolute;
+  content: '';
+  border-radius: 50%;
+  left: 0;
+  top: 2px;
+  width: 11px;
+  height: 11px;
+  background-color: #A0A0A0;
+  transform: translateX(0);
+  transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
+}
+
+.filter__input:checked::after {
+  background-color: #fff;
+  transform: translateX(calc(200%));
+}
+
+.filter__input:checked {
+  background: #3ddc84;
+}

@@ -1,0 +1,15 @@
+.devider {
+  min-height: 220px;
+}
+
+@media screen and (max-width: 840px) {
+  .devider {
+    min-height: 169px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .devider {
+    min-height: 132px;
+  }
+}
