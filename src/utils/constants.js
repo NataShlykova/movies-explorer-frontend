@@ -1,0 +1,9 @@
+export const SHORT = 40;
+export const TWELVE = 12;
+export const EIGHT = 8;
+export const FIVE = 5;
+export const TWO = 2;
+export const THREE = 3;
+export const BIG_SCREEN = 1280;
+export const MEDIUM_SCREEN = 950;
+export const SMALL_SCREEN = 500;

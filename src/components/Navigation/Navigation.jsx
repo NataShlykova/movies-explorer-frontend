@@ -5,9 +5,9 @@ import { Link, NavLink } from 'react-router-dom';
 import Menu from '../Menu/Menu';
 
 function Navigation() {
-  const linkActive = 'navigation__link navigation__link_active';
   const link = 'navigation__link';
   const [opened, setOpened] = useState(false);
+  const linkActive = 'navigation__link navigation__link_active';
 
   return (
     <nav className='navigation'>
@@ -42,7 +42,7 @@ function Navigation() {
           <div className='navigation__line'></div>
         </div>
       </div>
-      {opened && <Menu onClickClose={() => setOpened(false)} />}
+      {opened && <Menu opened={opened} onClickClose={() => setOpened(!true)} />}
     </nav>
   );
 }
