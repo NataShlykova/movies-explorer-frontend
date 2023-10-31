@@ -19,7 +19,7 @@ function FilterCheckbox({ filter, setFilter }) {
         value={undefined}
         onChange={handleButton}
       />
-      <label className='filter__label' htmlFor='filter' />
+      <label className='filter__label' htmlFor='checkbox' />
     </div>
   );
 }

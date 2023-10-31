@@ -25,10 +25,11 @@ function Movies({
   setFilter,
   cardsLoading,
   setCardsLoading,
+  found,
+  setFound
 }) {
   const [movieFiltered, setMovieFiltered] = useState([]);
   const [addCardButton, setAddMovieButton] = useState(0);
-  const [found, setFound] = useState(false);
   const [showMovieFiltered, setShowMovieFiltered] = useState(0);
 
   async function addCard(item) {
@@ -70,6 +71,7 @@ function Movies({
   useEffect(() => {
     const item = getLocalStorage('itemSearch');
     if (item) addCard(item);
+    setFilter(false);
   }, []);
 
   return (
@@ -93,6 +95,8 @@ function Movies({
           onMovieSave={onMovieSave}
           saveMovies={saveMovies}
           setShowMovieFiltered={setShowMovieFiltered}
+          setFound={setFound}
+          setFilter={setFilter}
         />
         {showMovieFiltered > addCardButton ? (
           <button className='movies__button' onClick={handleButton}>

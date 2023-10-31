@@ -14,8 +14,9 @@ function SavedMovies({
   handleMovieDelete,
   setFilterSaveMovie,
   setCardsLoading,
+  found,
+  setFound
 }) {
-
   const [filter, setFilter] = useState(false);
 
   async function addCard(item) {
@@ -29,6 +30,7 @@ function SavedMovies({
 
     const resultFilteredMovies = flteredMovie(item, movieSaved);
     setFilterSaveMovie(resultFilteredMovies.reverse());
+    resultFilteredMovies.length === 0 ? setFound(true) : setFound(false);
     setCardsLoading(false);
   }
 
@@ -39,7 +41,7 @@ function SavedMovies({
         })
       : [];
     return list;
-  }
+  };
 
   useEffect(() => {
     addCard('');
@@ -49,16 +51,14 @@ function SavedMovies({
     <main className='movies'>
       <>
         <Header login={login} />
-        <SearchForm
-          filter={filter}
-          setFilter={setFilter}
-          addCard={addCard}
-        />
+        <SearchForm filter={filter} setFilter={setFilter} addCard={addCard} />
         <MoviesCardList
           handleMovieDelete={handleMovieDelete}
           movies={filterSaveMovie}
           filter={filter}
+          setFound={setFound}
         />
+        {found && <span className='movies__absent'>«Ничего не найдено»</span>}
         <Devider />
         <Footer />
       </>

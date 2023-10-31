@@ -36,6 +36,7 @@ function App() {
   const [filter, setFilter] = useState(
     false || getLocalStorage('checkedButton')
   );
+  const [found, setFound] = useState(false);
 
   useEffect(() => {
     const token = getLocalStorage('jwt');
@@ -243,6 +244,8 @@ function App() {
                 onMovieSave={handleSaveMovie}
                 cardList={cardList}
                 setCardList={setCardList}
+                found={found}
+                setFound={setFound}
               ></ProtectedRoute>
             }
           />
@@ -256,6 +259,8 @@ function App() {
                 setFilterSaveMovie={setFilterSaveMovie}
                 handleMovieDelete={handleMovieDelete}
                 setCardsLoading={setCardsLoading}
+                found={found}
+                setFound={setFound}
               ></ProtectedRoute>
             }
           />

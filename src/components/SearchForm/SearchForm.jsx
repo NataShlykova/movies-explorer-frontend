@@ -23,6 +23,7 @@ function SearchForm({ setFilter, loading, addCard, filter }) {
     if (values.name) {
       setValid(true);
     }
+    setValues(false);
   }, []);
 
   return (

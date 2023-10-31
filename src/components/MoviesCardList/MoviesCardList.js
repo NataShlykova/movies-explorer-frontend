@@ -16,6 +16,7 @@ function MoviesCardList({
   movie,
   setAddMovieButton,
   setShowMovieFiltered,
+  setFound
 }) {
   const [showMovies, setShowMovies] = useState([]);
 
@@ -37,7 +38,12 @@ function MoviesCardList({
         }).length
       : movies.length;
     setShowMovieFiltered(filteredMovies);
+
+    if (filteredMovies === 0) {
+      setFound(true);
+    }
   }, [movies, filter, addCardButton]);
+
 
   useEffect(() => {
     setAddMovieButton(getMovieCards());
