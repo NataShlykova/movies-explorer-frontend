@@ -43,9 +43,9 @@ function SavedMovies({
     return list;
   };
 
-  // useEffect(() => {
-  //   addCard('');
-  // }, []);
+  useEffect(() => {
+    addCard('');
+  }, []);
 
   return (
     <main className='movies'>
