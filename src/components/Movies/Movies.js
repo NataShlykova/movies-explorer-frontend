@@ -71,7 +71,6 @@ function Movies({
   useEffect(() => {
     const item = getLocalStorage('itemSearch');
     if (item) addCard(item);
-    setFilter(false);
   }, []);
 
   return (

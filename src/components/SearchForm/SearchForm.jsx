@@ -3,10 +3,12 @@ import './SearchForm.css';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import { getLocalStorage } from '../../utils/utils';
 import useForm from '../../hooks/form';
+import { useLocation } from "react-router-dom";
 
 function SearchForm({ setFilter, loading, addCard, filter }) {
   const [textShow, setTextShow] = useState(false);
   const { setValues, setValid, values, handleChange } = useForm();
+  const { pathname } = useLocation();
 
   const handleButtonSubmit = (event) => {
     event.preventDefault();
@@ -18,13 +20,16 @@ function SearchForm({ setFilter, loading, addCard, filter }) {
   }
 
   useEffect(() => {
-    setValues({ name: getLocalStorage('itemSearch') });
-    
-    if (values.name) {
-      setValid(true);
-    }
-    setValues(false);
+    setValid(true);
   }, []);
+
+  useEffect(() => {
+    if (pathname === '/movies') {
+      setValues({
+        name: getLocalStorage('itemSearch'),
+      });
+    }
+  }, [setValues]);
 
   return (
     <div className='search'>

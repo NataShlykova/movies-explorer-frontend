@@ -12,7 +12,7 @@
   padding-right: 2px;
 }
 
-.navtab__item {
+.navtab__button {
   min-width: 96px;
   min-height: 36px;
   background-color: #303030;
@@ -22,18 +22,13 @@
   border-radius: 10px;
   transition: opacity 0.7s;
   cursor: pointer;
-}
-
-.navtab__button {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
   font-size: 12px;
-
-  background-color: #303030;
 }
 
-.navtab__item:hover {
+.navtab__button:hover {
   opacity: 0.8;
 }
 
@@ -53,13 +48,9 @@
     padding-right: 0;
   }
 
-  .navtab__item {
+  .navtab__button {
     min-width: 82px;
     min-height: 26px;
-    border-radius: 6px;
-  }
-
-  .navtab__button {
     font-size: 10px;
     border-radius: 6px;
   }

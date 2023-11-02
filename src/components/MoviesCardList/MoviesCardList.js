@@ -44,7 +44,6 @@ function MoviesCardList({
     }
   }, [movies, filter, addCardButton]);
 
-
   useEffect(() => {
     setAddMovieButton(getMovieCards());
     function handleChangeSize() {
