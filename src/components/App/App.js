@@ -34,7 +34,7 @@ function App() {
   const [cardList, setCardList] = useState(getLocalStorage('myMovie') || []);
   const [filterSaveMovie, setFilterSaveMovie] = useState([]);
   const [filter, setFilter] = useState(
-    false || getLocalStorage('checkedButton')
+    false || getLocalStorage('checked')
   );
   const [found, setFound] = useState(false);
 
