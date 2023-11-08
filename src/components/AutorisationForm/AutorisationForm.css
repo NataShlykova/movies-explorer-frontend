@@ -52,7 +52,7 @@
 }
 
 .form__button_register {
-  margin-top: 69px;
+  /* margin-top: 69px; */
   font-size: 13px;
 }
 
@@ -179,7 +179,7 @@
   }
 
   .form__button_register {
-    margin-top: 69px;
+    /* margin-top: 69px; */
     font-size: 13px;
     letter-spacing: 0.6px;
   }
@@ -206,7 +206,7 @@
     letter-spacing: 0.3px;
   }
 
-  .form-box__button {
+  .form__button {
     padding-left: 7px;
     font-size: 12px;
     line-height: 15px;

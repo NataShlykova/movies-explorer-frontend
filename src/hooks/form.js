@@ -1,35 +1,48 @@
 import { useCallback, useState } from 'react';
 
 function useForm() {
-  const [values, setValues] = useState({});
   const [valid, setValid] = useState(false);
   const [error, setError] = useState({});
+  const [values, setValues] = useState({});
 
   const handleChange = (event) => {
     const { value, name } = event.target;
-    setValues({ ...values, [name]: value });
     setError({ ...error, [name]: event.target.validationMessage });
     setValid(event.target.closest('form').checkValidity());
+    setValues({ ...values, [name]: value });
+
+    function isEmail(email) {
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}$/;
+      return emailPattern.test(email);
+    }
+
+    if (name === 'email' && !isEmail(value)) {
+      event.target.setCustomValidity(
+        'Нужно указать e-mail адрес'
+      );
+    } else {
+      event.target.setCustomValidity('');
+    }
   };
 
   const reset = useCallback(
-    (newValue = {}, newValid = false, newError) => {
-      setValues(newValue);
+    (newValid = false, newError = {}, newValue = {}) => {
       setValid(newValid);
       setError(newError);
+      setValues(newValue);
     },
-    [setValues, setValid, setError]
+    [setValid, setError, setValues]
   );
 
   return {
-    values,
     valid,
-    handleChange,
-    reset,
+    values,
+    error,
     setValid,
     setValues,
-    error,
     setError,
+    handleChange,
+    reset,
   };
 }
 

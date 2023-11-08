@@ -30,7 +30,7 @@
 `npm run build` — запускает сборку проекта
 
 ## Cсылка:
-IP 158.160.77.137 
+IP 158.160.17.170    
 Frontend  https://domainname.students2.nomoredomainsrocks.ru   
 Backend  https://domainname.students.nomoredomainsrocks.ru   
-GitHub: https://github.com/NataShlykova/movies-explorer-frontend/pull/1   
+GitHub: https://github.com/NataShlykova/movies-explorer-frontend/pull/2   

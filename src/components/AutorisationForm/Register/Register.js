@@ -1,32 +1,59 @@
 import React from 'react';
-import './Login.css';
+import './Register.css';
 import AutorisationForm from '../AutorisationForm';
 import { Navigate } from 'react-router-dom';
 import useForm from '../../../hooks/form';
 
-function Login({ login, onLogin, onLoading }) {
-  const { valid, values, handleChange, error  } = useForm();
+function Register({ login, onRegister, onLoading }) {
+  const { valid, error, values, handleChange } = useForm();
 
   function handleSubmit(e) {
     e.preventDefault();
-    onLogin({
+
+    onRegister({
+      name: values.name,
       email: values.email,
       password: values.password,
     });
   }
 
   return login ? (
-      <Navigate to='/' replace />
-    ) : (
-    <main className='login'>
+    <Navigate to='/' replace />
+  ) : (
+    <main className='register'>
       <AutorisationForm
-        title='Рады видеть!'
-        name='login'
+        title='Добро пожаловать!'
+        name='register'
+        onSubmit={handleSubmit}
         valid={valid}
         isDisable={!valid}
-        onSubmit={handleSubmit}
-        buttonText='Войти'
+        buttonText='Зарегистрироваться'
       >
+        <fieldset className='form__fieldset'>
+          <label className='form__label' htmlFor='name'>
+            Имя
+          </label>
+          <input
+            name='name'
+            type='text'
+            className={`form__input ${error.name ? 'form__input_error' : ''}`}
+            minLength='2'
+            maxLength='40'
+            id='name'
+            required
+            onChange={handleChange}
+            value={values.name || ''}
+            autoComplete='off'
+            disabled={onLoading ? true : false}
+            placeholder='Имя'
+          />
+          <span
+            id='password-name'
+            className={`form__error ${error.name ? 'form__error_visible' : ''}`}
+          >
+            {error.name || ''}
+          </span>
+        </fieldset>
         <fieldset className='form__fieldset'>
           <label className='form__label' htmlFor='email'>
             E-mail
@@ -61,15 +88,17 @@ function Login({ login, onLogin, onLoading }) {
           <input
             name='password'
             type='password'
-            className='form__input'
+            className={`form__input ${
+              error.password ? 'form__input_error' : ''
+            }`}
             minLength='6'
             maxLength='100'
             id='password'
             required
             onChange={handleChange}
             value={values.password || ''}
-            autoComplete='off'
             disabled={onLoading ? true : false}
+            autoComplete='off'
             placeholder='Пароль'
           />
           <span
@@ -85,5 +114,4 @@ function Login({ login, onLogin, onLoading }) {
     </main>
   );
 }
-
-export default Login;
+export default Register;

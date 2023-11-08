@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
-// import { Route, Routes } from 'react-router-dom';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
 
-function Header() {
-  const [login, setlogin] = useState(true);
-  console.log(setlogin);
-
+function Header({ login }) {
   return (
     <header className='header'>
       <Link to='/' className='header__logo'></Link>

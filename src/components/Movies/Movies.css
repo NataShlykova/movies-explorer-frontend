@@ -3,6 +3,11 @@
   flex-direction: column;
 }
 
+.movies__absent {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
 .movies__button {
   font-size: 12px;
   line-height: 15px;

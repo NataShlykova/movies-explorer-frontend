@@ -83,8 +83,17 @@
     font-size: 12px;
     min-width: 84px;
     min-height: 57px;
-    line-height: 14.52pxpx;
+    line-height: 14.52px;
   }
+}
+
+@media screen and (max-width: 900px) {
+  .techs__context {
+    padding-bottom: 68px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
 }
 
 @media screen and (max-width: 450px) {
